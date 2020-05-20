@@ -1,21 +1,25 @@
+import 'package:covfiguresapp/pages/compare_page.dart';
 import 'package:flutter/material.dart';
 import 'package:covfiguresapp/constants.dart';
-import 'package:outline_material_icons/outline_material_icons.dart';
 
 class SummaryPageHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: kBackgroundColor,
+      backgroundColor: kMainPurple,
       bottom: PreferredSize(
         // Add this code
-        preferredSize: Size.fromHeight(40.0),
+        preferredSize: Size.fromHeight(kAppBarHeight),
         child: Text(''),
       ),
-      expandedHeight: 200.0,
+      expandedHeight: kAppBarExpandedHeight,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
+        centerTitle: true,
         title: Container(
+//          alignment: Alignment.bottomLeft,
+          padding: EdgeInsets.all(0),
+          margin: EdgeInsets.all(0),
           height: 50,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,11 +51,14 @@ class SummaryPageHeader extends StatelessWidget {
       actions: <Widget>[
         IconButton(
           iconSize: 50,
-          color: kPrimaryColor,
+          color: kPurpleWhite,
           icon: const Icon(
-            OMIcons.addCircleOutline,
+            Icons.menu,
+            size: 40,
           ),
-          onPressed: () {/* ... */},
+          onPressed: () {
+            Navigator.pushNamed(context, ComparePage.id);
+          },
         ),
       ],
     );

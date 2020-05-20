@@ -6,13 +6,14 @@ class NumbersSection extends StatelessWidget {
   final List<Widget> records = [
     CaseNumberBox(),
     SizedBox(
-      height: 10,
+      height: 30,
     ),
   ];
 
-  final NumbersSectionTextStyle = kTextStyle.copyWith(
+  final numbersSectionTextStyle = kTextStyle.copyWith(
     color: kFontColor2,
-    fontSize: 16,
+    fontSize: 18,
+    letterSpacing: 1,
   );
 
   List<Widget> getRecords() {
@@ -41,12 +42,7 @@ class NumbersSection extends StatelessWidget {
         dataValue: "300",
       ),
     );
-    records.addAll(
-      createRecord(
-        dataKey: "Confirmed Cases",
-        dataValue: "12,300",
-      ),
-    );
+
     records.addAll(
       createRecord(
         dataKey: "Recovered",
@@ -64,11 +60,11 @@ class NumbersSection extends StatelessWidget {
         children: <Widget>[
           Text(
             dataKey,
-            style: NumbersSectionTextStyle,
+            style: numbersSectionTextStyle,
           ),
           Text(
             dataValue,
-            style: NumbersSectionTextStyle,
+            style: numbersSectionTextStyle,
           ),
         ],
       ),
@@ -81,9 +77,16 @@ class NumbersSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: kPrimaryColor,
-        margin: EdgeInsets.only(bottom: 10),
-        padding: EdgeInsets.all(35),
+        decoration: BoxDecoration(
+          color: kPurpleWhite,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
+//        margin: EdgeInsets.only(bottom: 15),
+        padding: EdgeInsets.only(top: 40, left: 40, right: 40, bottom: 20),
+//        padding: EdgeInsets.all(45),
         child: Column(
           children: getRecords(),
         ));

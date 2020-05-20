@@ -22,7 +22,7 @@ class CaseNumberBox extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
-                '123,440',
+                '11,000',
                 style: kTextStyle.copyWith(
                   color: kSafeColor,
                   fontSize: 70,

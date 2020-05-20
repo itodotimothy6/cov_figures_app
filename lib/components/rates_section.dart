@@ -7,49 +7,48 @@ class RatesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: kPrimaryColor,
-        padding: EdgeInsets.all(50),
-        child: Column(
-          children: <Widget>[
-            Text(
-              'Rates',
-              style: kTextStyle.copyWith(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: kFontColor2,
+      padding: EdgeInsets.all(40),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: RatesCard(position: CardPosition.left),
               ),
-            ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: RatesCard(),
-                ),
-                Expanded(
-                  child: RatesCard(),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: RatesCard(),
-                ),
-                Expanded(
-                  child: RatesCard(),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: RatesCard(),
-                ),
-                Expanded(
-                  child: RatesCard(),
-                ),
-              ],
-            ),
-          ],
-        ));
+              Expanded(
+                child: RatesCard(position: CardPosition.right),
+              ),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: RatesCard(position: CardPosition.left),
+              ),
+              Expanded(
+                child: RatesCard(position: CardPosition.right),
+              ),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: RatesCard(position: CardPosition.left),
+              ),
+              Expanded(
+                child: RatesCard(position: CardPosition.right),
+              ),
+            ],
+          ),
+        ],
+      ),
+      decoration: BoxDecoration(
+        color: kPurpleWhite,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+      ),
+    );
   }
 }
