@@ -10,7 +10,7 @@ class SearchPage extends StatelessWidget {
         width: 50,
         height: 50,
         decoration: BoxDecoration(
-          color: kBackgroundColor,
+          color: kMainPurple,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10),
             bottomLeft: Radius.circular(10),
@@ -18,7 +18,7 @@ class SearchPage extends StatelessWidget {
         ),
         child: Icon(
           Icons.search,
-          color: kPrimaryColor,
+          color: kPurpleWhite,
         ),
       );
 
@@ -30,7 +30,7 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kPrimaryColor,
+      backgroundColor: kPurpleWhite,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(40),
@@ -49,7 +49,7 @@ class SearchPage extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(width: 1.0, color: kBackgroundColor),
+                    bottom: BorderSide(width: 1.0, color: kMainPurple),
                   ),
                 ),
               );

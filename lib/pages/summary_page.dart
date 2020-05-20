@@ -15,7 +15,7 @@ class SummaryPage extends StatelessWidget {
         children: <Widget>[
           Container(
             height: 400,
-            color: kBackgroundColor,
+            color: kMainPurple,
           ),
           CustomScrollView(
             slivers: <Widget>[
@@ -26,7 +26,7 @@ class SummaryPage extends StatelessWidget {
                     NumbersSection(),
                     Container(
                       height: 15,
-                      color: kPageDivideColor,
+                      color: kLightPurple,
                     ),
                     RatesSection(),
                     BottomInfoIconButton(),

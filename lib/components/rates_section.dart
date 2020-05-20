@@ -43,7 +43,7 @@ class RatesSection extends StatelessWidget {
         ],
       ),
       decoration: BoxDecoration(
-        color: kPrimaryColor,
+        color: kPurpleWhite,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),

@@ -8,7 +8,7 @@ class StatsDropDown extends StatefulWidget {
 
 class _StatsDropDownState extends State<StatsDropDown> {
   String dropdownValue = 'Death Rate';
-  List<String> stats = ['Death Rate', 'Confirmed', 'Free', 'Four'];
+  List<String> stats = ['Death Rate', 'Confirmed Cases', 'Free', 'Four'];
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,12 @@ class _StatsDropDownState extends State<StatsDropDown> {
               dropdownValue = newValue;
             });
           },
-          underline: Container(),
+          underline: Container(
+            padding: EdgeInsets.only(top: 10),
+            color: kLightPurple,
+            height: 1,
+          ),
+          focusColor: Colors.red,
           items: stats.map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,

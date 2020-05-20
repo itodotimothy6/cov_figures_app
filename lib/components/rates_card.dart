@@ -22,7 +22,7 @@ class RatesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: kBackgroundColor,
+        color: kMainPurple,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(

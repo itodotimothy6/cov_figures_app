@@ -78,7 +78,7 @@ class NumbersSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-          color: kPrimaryColor,
+          color: kPurpleWhite,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),

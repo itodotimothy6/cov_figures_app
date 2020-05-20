@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 // Colors
-const kBackgroundColor = Color(0xFF473F97);
-const kPageDivideColor = Color(0xFFCEC9E4);
-const kPrimaryColor = Color(0xFFFBF8FD);
+const kMainPurple = Color(0xFF473F97);
+const kLightPurple = Color(0xFFCEC9E4);
+const kPurpleWhite = Color(0xFFFBF8FD);
 const kDangerColor = Color(0xFFFD434C);
 const kDangerBackgroundColor = Color(0xFFFFECED);
 const kCasualColor = Color(0xFFFEA202);

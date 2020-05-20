@@ -6,7 +6,7 @@ class SummaryPageHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: kBackgroundColor,
+      backgroundColor: kMainPurple,
       bottom: PreferredSize(
         // Add this code
         preferredSize: Size.fromHeight(kAppBarHeight),
@@ -51,7 +51,7 @@ class SummaryPageHeader extends StatelessWidget {
       actions: <Widget>[
         IconButton(
           iconSize: 50,
-          color: kPrimaryColor,
+          color: kPurpleWhite,
           icon: const Icon(
             Icons.menu,
             size: 40,

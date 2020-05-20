@@ -12,8 +12,8 @@ class CovFiguresApp extends StatelessWidget {
     return MaterialApp(
       title: 'Cov Figures',
       theme: ThemeData(
-        scaffoldBackgroundColor: kPageDivideColor,
-        canvasColor: kBackgroundColor,
+        scaffoldBackgroundColor: kLightPurple,
+        canvasColor: kMainPurple,
       ),
       initialRoute: SummaryPage.id,
       routes: {

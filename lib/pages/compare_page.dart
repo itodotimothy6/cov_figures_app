@@ -26,7 +26,7 @@ class _ComparePageState extends State<ComparePage> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(kAppBarHeight + 50),
         child: AppBar(
-            backgroundColor: kBackgroundColor,
+            backgroundColor: kMainPurple,
             centerTitle: true,
             title: StatsDropDown()),
       ),
@@ -44,17 +44,17 @@ class _ComparePageState extends State<ComparePage> {
               },
               background: Container(
                 color: Colors.red,
-                margin: EdgeInsets.only(top: 30),
+                margin: EdgeInsets.only(top: 15),
                 alignment: AlignmentDirectional.centerEnd,
                 child: Icon(
                   Icons.delete,
                   size: 50,
-                  color: kPrimaryColor,
+                  color: kPurpleWhite,
                 ),
               ),
               direction: DismissDirection.endToStart,
               child: Container(
-                margin: EdgeInsets.only(top: 30),
+                margin: EdgeInsets.only(top: 15),
                 height: 110,
                 child: Row(
                   children: <Widget>[
@@ -111,7 +111,7 @@ class _ComparePageState extends State<ComparePage> {
                     BoxShadow(
                       color: colors[index],
                       offset: Offset(0.0, 1.0), //(x,y)
-                      blurRadius: 6.0,
+                      blurRadius: 1.0,
                     ),
                   ],
                 ),
@@ -119,10 +119,10 @@ class _ComparePageState extends State<ComparePage> {
             );
           }),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: kPrimaryColor,
+          backgroundColor: kPurpleWhite,
           child: Icon(
             Icons.add,
-            color: kBackgroundColor,
+            color: kMainPurple,
             size: 40,
           ),
           onPressed: () {

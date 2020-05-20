@@ -12,7 +12,7 @@ class BottomInfoIconButton extends StatelessWidget {
       alignment: Alignment.bottomRight,
       child: IconButton(
         iconSize: 50,
-        color: kBackgroundColor,
+        color: kMainPurple,
         icon: const Icon(Icons.info_outline),
         onPressed: () {},
       ),
