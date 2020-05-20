@@ -12,10 +12,14 @@ class SummaryPageHeader extends StatelessWidget {
         preferredSize: Size.fromHeight(kAppBarHeight),
         child: Text(''),
       ),
-      expandedHeight: 200.0,
+      expandedHeight: kAppBarExpandedHeight,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
+        centerTitle: true,
         title: Container(
+//          alignment: Alignment.bottomLeft,
+          padding: EdgeInsets.all(0),
+          margin: EdgeInsets.all(0),
           height: 50,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

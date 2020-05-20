@@ -24,7 +24,7 @@ class _ComparePageState extends State<ComparePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kAppBarHeight),
+        preferredSize: Size.fromHeight(kAppBarHeight + 50),
         child: AppBar(
             backgroundColor: kBackgroundColor,
             centerTitle: true,

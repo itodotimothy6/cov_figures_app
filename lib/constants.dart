@@ -20,8 +20,9 @@ const kTextStyle = TextStyle(
 );
 
 // Dimensions
-const kRatesCardHeight = 100.0;
-const kAppBarHeight = 80.0;
+const kRatesCardHeight = 120.0;
+const kAppBarHeight = 30.0;
+const kAppBarExpandedHeight = 150.0;
 
 // States Data
 const kStates = [
