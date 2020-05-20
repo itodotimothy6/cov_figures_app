@@ -1,0 +1,24 @@
+
+body{
+  background-color: #fbf8fd;
+}
+.navbar{
+  background-color: #473F97;
+    color: #fafbf4;
+    text-align: center;
+}
+.jumbotron{
+  background-color: #e1dee3;
+  color: #222222;
+  margin-bottom: 0;
+}
+
+.container{
+  padding: 30px 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-link{
+color: #222222
+}
