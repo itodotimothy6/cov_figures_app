@@ -1,6 +1,6 @@
+import 'package:covfiguresapp/pages/compare_page.dart';
 import 'package:flutter/material.dart';
 import 'package:covfiguresapp/constants.dart';
-import 'package:outline_material_icons/outline_material_icons.dart';
 
 class SummaryPageHeader extends StatelessWidget {
   @override
@@ -9,7 +9,7 @@ class SummaryPageHeader extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       bottom: PreferredSize(
         // Add this code
-        preferredSize: Size.fromHeight(40.0),
+        preferredSize: Size.fromHeight(kAppBarHeight),
         child: Text(''),
       ),
       expandedHeight: 200.0,
@@ -49,9 +49,12 @@ class SummaryPageHeader extends StatelessWidget {
           iconSize: 50,
           color: kPrimaryColor,
           icon: const Icon(
-            OMIcons.addCircleOutline,
+            Icons.menu,
+            size: 40,
           ),
-          onPressed: () {/* ... */},
+          onPressed: () {
+            Navigator.pushNamed(context, ComparePage.id);
+          },
         ),
       ],
     );

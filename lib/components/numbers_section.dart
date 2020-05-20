@@ -10,7 +10,7 @@ class NumbersSection extends StatelessWidget {
     ),
   ];
 
-  final NumbersSectionTextStyle = kTextStyle.copyWith(
+  final numbersSectionTextStyle = kTextStyle.copyWith(
     color: kFontColor2,
     fontSize: 16,
   );
@@ -64,11 +64,11 @@ class NumbersSection extends StatelessWidget {
         children: <Widget>[
           Text(
             dataKey,
-            style: NumbersSectionTextStyle,
+            style: numbersSectionTextStyle,
           ),
           Text(
             dataValue,
-            style: NumbersSectionTextStyle,
+            style: numbersSectionTextStyle,
           ),
         ],
       ),
