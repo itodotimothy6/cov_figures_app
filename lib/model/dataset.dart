@@ -1,3 +1,6 @@
+import 'package:covfiguresapp/services/network_helper.dart';
+
+
 class Dataset{
   //Divided the deaths and cases into two data points- current and previous, which we would get from our requested data. We would use this to calculate the 'recent' deaths and cases
 
@@ -8,10 +11,20 @@ class Dataset{
   int currentDeaths;
   int previousDeaths;
   int population;
-  int currentRecoveries;
-  int previousRecoveries;
+//  int currentRecoveries;
+//  int previousRecoveries;
   bool onLockdown;
 
+  Dataset({this.currentCases, this.previousCases, this.currentDeaths, this.previousDeaths, this.population, this.onLockdown});
+
+  factory Dataset.fromJson(Map<String, dynamic> json) {
+
+    return Dataset(
+      currentCases: json['c'][],
+      id: json['id'],
+      title: json['title'],
+    );
+  }
 
 
   //Rounding down because in population terms, it's more fitting than rounding up
