@@ -9,10 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.12.1
 
   cupertino_icons: ^0.1.2
   flappy_search_bar: ^1.7.2
+  http: ^0.12.1
 
 dev_dependencies:
   flutter_test:

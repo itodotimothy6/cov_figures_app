@@ -1,25 +1,20 @@
-import 'package:covfiguresapp/model/dataset.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:covfiguresapp/model/dataset.dart';
 
-Future<Dataset> fetchStats(url) async {
-  final response = await http.get(url);
+class NetworkHelper {
+  NetworkHelper({this.url});
 
-  if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
-    return Dataset.fromJson(json.decode(response.body));
-  } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
-    throw Exception('Failed to load data sets');
+  final String url;
+
+  Future getData() async {
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body);
+    } else {
+      print("Connection failed");
+      throw Exception('Failed to connect to URL');
+    }
   }
 }
-
-
-
-
-
-
-

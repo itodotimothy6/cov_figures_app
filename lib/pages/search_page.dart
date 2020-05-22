@@ -24,7 +24,7 @@ class SearchPage extends StatelessWidget {
 
   Future<List<String>> search(String search) async {
     await Future.delayed(Duration(seconds: 1));
-    return kStates;
+    return kStates.keys;
   }
 
   @override
