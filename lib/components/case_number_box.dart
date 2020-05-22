@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:covfiguresapp/constants.dart';
 
 class CaseNumberBox extends StatelessWidget {
+  final cases;
+
+  CaseNumberBox({@required this.cases});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +26,7 @@ class CaseNumberBox extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
-                '11,000',
+                '$cases',
                 style: kTextStyle.copyWith(
                   color: kSafeColor,
                   fontSize: 70,

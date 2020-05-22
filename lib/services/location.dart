@@ -1,4 +1,5 @@
-import 'package:covfiguresapp/model/cov_data.dart';
+import 'package:covfiguresapp/models/county.dart';
+import 'package:covfiguresapp/models/cov_data.dart';
 import 'package:covfiguresapp/services/network_helper.dart';
 import 'package:covfiguresapp/services/get_data.dart';
 
@@ -9,7 +10,7 @@ class Location {
 
   Location({this.lat, this.long});
 
-  Future<Map<String, CovData>> myFunction() async {
+  Future<CovData> getLocationData() async {
     String url = '$baseUrl?lat=${this.lat}&lon=${this.long}&format=json';
     NetworkHelper networkHelper = NetworkHelper(url: url);
 
@@ -20,8 +21,47 @@ class Location {
     String key =
         '${county["results"][0]["county_name"]},${county["results"][0]["state_code"]}';
 
-    Data data = Data();
+    var data = await Data().getUSData();
+    rankCounties(data);
 
-    return await data.getUSData();
+    CovData locationData = data[key];
+
+    return locationData;
+  }
+
+  List<County> rankCounties(Map<String, CovData> data) {
+    List<County> counties = [];
+    data.forEach((k, v) {
+      // TODO: Remove this temporary solve
+      double infectedDensity;
+      try {
+        infectedDensity = double.parse(
+            v.fatalityRate.substring(0, v.fatalityRate.length - 2));
+      } catch (e) {
+        infectedDensity = 0;
+      }
+
+      counties.add(
+        County(name: k, infectedDensity: infectedDensity, rank: 0),
+      );
+    });
+
+    counties.sort(
+      (a, b) => a.infectedDensity.compareTo(b.infectedDensity),
+    );
+
+    double prevDensity = counties[0].infectedDensity;
+    print(prevDensity);
+    int rank = 0;
+
+    for (County county in counties) {
+      if (county.infectedDensity > prevDensity) {
+        ++rank;
+        prevDensity = county.infectedDensity;
+      }
+      county.setRank(rank);
+    }
+
+    return counties;
   }
 }

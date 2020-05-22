@@ -6,24 +6,18 @@ import 'package:covfiguresapp/components/rates_section.dart';
 import 'package:covfiguresapp/components/buttom_info_icon_button.dart';
 import 'package:covfiguresapp/services/location.dart';
 import 'package:covfiguresapp/services/get_data.dart';
-import 'package:covfiguresapp/model/cov_data.dart';
+import 'package:covfiguresapp/models/cov_data.dart';
 
 class SummaryPage extends StatelessWidget {
-  static const id = '/';
+  static const id = 'summary_page';
 
-  Location location = Location(lat: 40.4406, long: -79.994957);
+  final CovData data;
 
-//  void getData() async {
-//    Data data = Data();
-//    Map<String, CovData> dataMap = await data.getUSData();
-//
-//    print(dataMap['New York,NY'].death);
-//  }
+  SummaryPage(this.data);
 
   @override
   Widget build(BuildContext context) {
-    location.myFunction();
-
+    print("The location data is here ${data.stateName}");
     return Scaffold(
       body: Stack(
         fit: StackFit.loose,
@@ -34,15 +28,16 @@ class SummaryPage extends StatelessWidget {
           ),
           CustomScrollView(
             slivers: <Widget>[
-              SummaryPageHeader(),
+              SummaryPageHeader(
+                name: data.countyName,
+                stateCode: data.stateCode,
+                lastUpdate: data.lastUpdate,
+              ),
               SliverList(
                 delegate: SliverChildListDelegate(
                   [
-                    NumbersSection(),
-                    Container(
-                      height: 15,
-                      color: kLightPurple,
-                    ),
+                    NumbersSection(data: data),
+                    Container(height: 15, color: kLightPurple),
                     RatesSection(),
                     BottomInfoIconButton(),
                   ],

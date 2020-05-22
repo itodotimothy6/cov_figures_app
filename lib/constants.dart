@@ -24,19 +24,6 @@ const kRatesCardHeight = 120.0;
 const kAppBarHeight = 30.0;
 const kAppBarExpandedHeight = 150.0;
 
-// States Data
-//const kStates = [
-//  "Alaska",
-//  "Alabama",
-//  "Arkansas",
-//  "American Samoa",
-//  "Arizona",
-//  "California",
-//  "Colorado",
-//  "Connecticut",
-//  "District of Columbia"
-//];
-
 const kStates = {
   'Mississippi': 'MS',
   'Northern Mariana Islands': 'MP',

@@ -3,20 +3,15 @@ import 'package:covfiguresapp/constants.dart';
 import 'dart:ui';
 import 'rate_alert_box.dart';
 
-enum CardPosition { left, right }
+enum CardPosition {
+  left,
+  right,
+}
 
 class RatesCard extends StatelessWidget {
   final CardPosition position;
 
   RatesCard({this.position});
-
-  createAlertDialog(BuildContext context) {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return RateAlertBox();
-        });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,5 +59,13 @@ class RatesCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  createAlertDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return RateAlertBox();
+        });
   }
 }
