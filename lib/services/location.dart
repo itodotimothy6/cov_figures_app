@@ -13,42 +13,29 @@ class Location {
   Future<CovData> getLocationData() async {
     String url = '$baseUrl?lat=${this.lat}&lon=${this.long}&format=json';
     NetworkHelper networkHelper = NetworkHelper(url: url);
-
     var county = await networkHelper.getData();
 
     // TODO: Logic for US & Other countries
-
     String key =
         '${county["results"][0]["county_name"]},${county["results"][0]["state_code"]}';
-
     var data = await Data().getUSData();
-    rankCounties(data);
 
-    CovData locationData = data[key];
+    CovData.rank = rankCounties(data);
 
-    return locationData;
+    return data[key];
   }
 
-  List<County> rankCounties(Map<String, CovData> data) {
+  Map<String, int> rankCounties(Map<String, CovData> data) {
+    Map<String, int> rankOf = {};
     List<County> counties = [];
-    data.forEach((k, v) {
-      // TODO: Remove this temporary solve
-      double infectedDensity;
-      try {
-        infectedDensity = double.parse(
-            v.fatalityRate.substring(0, v.fatalityRate.length - 2));
-      } catch (e) {
-        infectedDensity = 0;
-      }
 
-      counties.add(
-        County(name: k, infectedDensity: infectedDensity, rank: 0),
-      );
-    });
+    data.forEach((k, v) => counties.add(County(
+          name: k,
+          infectedDensity: v.infectedDensity,
+          rank: 0,
+        )));
 
-    counties.sort(
-      (a, b) => a.infectedDensity.compareTo(b.infectedDensity),
-    );
+    counties.sort((a, b) => a.infectedDensity.compareTo(b.infectedDensity));
 
     double prevDensity = counties[0].infectedDensity;
     print(prevDensity);
@@ -60,8 +47,10 @@ class Location {
         prevDensity = county.infectedDensity;
       }
       county.setRank(rank);
+      rankOf[county.name] = rank;
+//      print('${county.name} => ${county.rank}');
     }
 
-    return counties;
+    return rankOf;
   }
 }

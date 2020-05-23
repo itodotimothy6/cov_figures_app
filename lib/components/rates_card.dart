@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:covfiguresapp/constants.dart';
+import 'package:covfiguresapp/globals.dart';
 import 'dart:ui';
 import 'rate_alert_box.dart';
 
@@ -10,8 +10,11 @@ enum CardPosition {
 
 class RatesCard extends StatelessWidget {
   final CardPosition position;
+  final String dataKey;
+  final String value;
+  final String unit;
 
-  RatesCard({this.position});
+  RatesCard({this.position, this.value, this.dataKey, this.unit});
 
   @override
   Widget build(BuildContext context) {
@@ -43,17 +46,30 @@ class RatesCard extends StatelessWidget {
 //              height: 15,
 //            ),
             Text(
-              'Death Rate',
+              dataKey,
               style: kTextStyle.copyWith(
                   fontWeight: FontWeight.bold, fontSize: 20),
+              textAlign: TextAlign.center,
             ),
             SizedBox(
-              height: 5,
+              height: 15,
             ),
-            Text(
-              '20%',
-              style: kTextStyle.copyWith(
-                  fontWeight: FontWeight.bold, fontSize: 20),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              mainAxisAlignment: MainAxisAlignment.center,
+              textBaseline: TextBaseline.alphabetic,
+              children: <Widget>[
+                Text(
+                  value,
+                  style: kTextStyle.copyWith(
+                      fontWeight: FontWeight.bold, fontSize: 25),
+                ),
+                Text(
+                  unit,
+                  style: kTextStyle.copyWith(
+                      fontWeight: FontWeight.bold, fontSize: 10),
+                ),
+              ],
             ),
           ],
         ),

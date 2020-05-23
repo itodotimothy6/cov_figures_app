@@ -1,6 +1,5 @@
-import 'package:covfiguresapp/constants.dart';
+import 'package:covfiguresapp/globals.dart';
 import 'package:covfiguresapp/pages/summary_page.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:covfiguresapp/services/location.dart';
@@ -24,14 +23,11 @@ class _LoadingPageState extends State<LoadingPage> {
     Position position = await Geolocator()
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
 
-    Location location = Location(
-      lat: position.latitude,
-      long: position.longitude,
-    );
+    Location location =
+        Location(lat: position.latitude, long: position.longitude);
 
     CovData locationData = await location.getLocationData();
-
-    print(locationData.countyName);
+    userLocations.add(locationData);
 
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return SummaryPage(locationData);

@@ -1,6 +1,6 @@
 import 'package:covfiguresapp/pages/compare_page.dart';
 import 'package:flutter/material.dart';
-import 'package:covfiguresapp/constants.dart';
+import 'package:covfiguresapp/globals.dart';
 
 class SummaryPageHeader extends StatelessWidget {
   final String name;

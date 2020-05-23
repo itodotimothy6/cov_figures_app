@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:covfiguresapp/constants.dart';
+import 'package:covfiguresapp/globals.dart';
 
 class BottomInfoIconButton extends StatelessWidget {
   const BottomInfoIconButton({

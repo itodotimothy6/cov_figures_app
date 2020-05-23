@@ -1,3 +1,5 @@
+import 'package:covfiguresapp/models/county.dart';
+
 class CovData {
   CovData({
     this.countyName,
@@ -10,6 +12,8 @@ class CovData {
     this.newDeath,
     this.fatalityRate,
     this.lastUpdate,
+    this.infectedDensity,
+    this.mortalityRate,
   });
 
   final countyName;
@@ -22,4 +26,7 @@ class CovData {
   final newDeath;
   final fatalityRate;
   final lastUpdate;
+  final double infectedDensity;
+  final double mortalityRate;
+  static Map<String, int> rank;
 }

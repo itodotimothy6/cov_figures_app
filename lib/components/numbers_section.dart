@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:covfiguresapp/constants.dart';
+import 'package:covfiguresapp/globals.dart';
 import 'case_number_box.dart';
 import 'package:covfiguresapp/models/cov_data.dart';
 
