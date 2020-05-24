@@ -1,3 +1,4 @@
+import 'package:covfiguresapp/data/states.dart';
 import 'package:flutter/material.dart';
 import 'package:covfiguresapp/globals.dart';
 import 'case_number_box.dart';
@@ -33,7 +34,12 @@ class NumbersSection extends StatelessWidget {
 
   List<Widget> getRecords() {
     final List<Widget> records = [
-      CaseNumberBox(cases: data.confirmed),
+      CaseNumberBox(
+        cases: data.confirmed,
+        color: data.color,
+        backgroundColor: data.backGroundColor,
+        population: population['${data.countyName},${data.stateCode}'],
+      ),
       SizedBox(height: 30),
     ];
 

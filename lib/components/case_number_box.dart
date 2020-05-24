@@ -3,8 +3,12 @@ import 'package:covfiguresapp/globals.dart';
 
 class CaseNumberBox extends StatelessWidget {
   final cases;
+  final color;
+  final backgroundColor;
+  final population;
 
-  CaseNumberBox({@required this.cases});
+  CaseNumberBox(
+      {this.cases, this.backgroundColor, this.color, this.population});
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +16,10 @@ class CaseNumberBox extends StatelessWidget {
       padding: EdgeInsets.all(17),
       height: 200,
       decoration: BoxDecoration(
-        color: kSafeBackgroundColor,
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(15),
         border: Border.all(
-          color: kSafeColor,
+          color: color,
           width: 2.0,
         ),
       ),
@@ -28,7 +32,7 @@ class CaseNumberBox extends StatelessWidget {
               child: Text(
                 '$cases',
                 style: kTextStyle.copyWith(
-                  color: kSafeColor,
+                  color: color,
                   fontSize: 70,
                 ),
               ),
@@ -38,9 +42,9 @@ class CaseNumberBox extends StatelessWidget {
             flex: 3,
             child: Center(
               child: Text(
-                'out of the 700,000 confirmed cases in the world',
+                'out of the $population people in this county',
                 style: kTextStyle.copyWith(
-                  color: kSafeColor,
+                  color: color,
                   fontSize: 18,
                 ),
                 textAlign: TextAlign.center,

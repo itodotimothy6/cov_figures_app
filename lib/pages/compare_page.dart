@@ -130,7 +130,7 @@ class _ComparePageState extends State<ComparePage> {
                                 '${item.countyName}, ${item.stateCode}',
                                 style: kTextStyle.copyWith(
                                   fontSize: 30,
-                                  color: kSafeColor,
+                                  color: item.color,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -153,12 +153,12 @@ class _ComparePageState extends State<ComparePage> {
                               child: Text(
                             getValue(item),
                             style: kTextStyle.copyWith(
-                                fontSize: 30, color: kSafeColor),
+                                fontSize: 30, color: item.color),
                           )),
                           height: 110,
                           decoration: BoxDecoration(
-                            color: kSafeBackgroundColor,
-                            border: Border(left: BorderSide(color: kSafeColor)),
+                            color: item.backGroundColor,
+                            border: Border(left: BorderSide(color: item.color)),
                           ),
                         ),
                       ),
@@ -168,7 +168,7 @@ class _ComparePageState extends State<ComparePage> {
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                        color: kSafeColor,
+                        color: item.color,
                         offset: Offset(0.0, 1.0), //(x,y)
                         blurRadius: 1.0,
                       ),

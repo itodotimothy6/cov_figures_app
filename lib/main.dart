@@ -18,7 +18,7 @@ class CovFiguresApp extends StatelessWidget {
       ),
       initialRoute: LoadingPage.id,
       routes: {
-        LoadingPage.id: (context) => LoadingPage(),
+        LoadingPage.id: (context) => LoadingPage(initialPage: true),
 //        SummaryPage.id: (context) => SummaryPage(),
         ComparePage.id: (context) => ComparePage(),
         SearchPage.id: (context) => SearchPage(),

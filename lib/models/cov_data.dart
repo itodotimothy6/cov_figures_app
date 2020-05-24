@@ -1,4 +1,5 @@
-import 'package:covfiguresapp/models/county.dart';
+import 'package:covfiguresapp/globals.dart';
+import 'package:flutter/material.dart';
 
 class CovData {
   CovData({
@@ -14,6 +15,9 @@ class CovData {
     this.lastUpdate,
     this.infectedDensity,
     this.mortalityRate,
+    this.status,
+    this.color,
+    this.backGroundColor,
   });
 
   final countyName;
@@ -28,5 +32,8 @@ class CovData {
   final lastUpdate;
   final double infectedDensity;
   final double mortalityRate;
+  final Color color;
+  final Color backGroundColor;
+  final CoronaStatus status;
   static Map<String, int> rank;
 }

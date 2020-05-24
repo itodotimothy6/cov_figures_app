@@ -35,20 +35,20 @@ class Location {
           rank: 0,
         )));
 
-    counties.sort((a, b) => a.infectedDensity.compareTo(b.infectedDensity));
+    counties.sort((a, b) => b.infectedDensity.compareTo(a.infectedDensity));
 
     double prevDensity = counties[0].infectedDensity;
     print(prevDensity);
     int rank = 0;
 
     for (County county in counties) {
-      if (county.infectedDensity > prevDensity) {
+      if (county.infectedDensity < prevDensity) {
         ++rank;
         prevDensity = county.infectedDensity;
       }
       county.setRank(rank);
       rankOf[county.name] = rank;
-//      print('${county.name} => ${county.rank}');
+      print('${county.name} => ${county.rank}');
     }
 
     return rankOf;

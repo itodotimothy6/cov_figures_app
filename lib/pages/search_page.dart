@@ -37,9 +37,16 @@ class SearchPage extends StatelessWidget {
   }
 
   Future addLocation(String key, BuildContext context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LoadingPage(initialPage: false);
+    }));
+
     var data = await Data().getUSData();
     userLocations.add(data[key]);
-    Navigator.pop(context);
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return ComparePage();
+    }));
   }
 
   @override

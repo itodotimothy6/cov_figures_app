@@ -9,6 +9,12 @@ class RatesSection extends StatelessWidget {
 
   RatesSection({this.data});
 
+  String locationStatus() {
+    if (data.status == CoronaStatus.safe) return "Safe";
+    if (data.status == CoronaStatus.danger) return "Danger";
+    return "Casual";
+  }
+
   @override
   Widget build(BuildContext context) {
     String countyKey = '${data.countyName},${data.stateCode}';
@@ -42,15 +48,15 @@ class RatesSection extends StatelessWidget {
                 child: RatesCard(
                   position: CardPosition.left,
                   dataKey: 'Danger Rank',
-                  value: '#${CovData.rank[countyKey].toString()}',
+                  value: '#${(CovData.rank[countyKey] + 1).toString()}',
                   unit: '',
                 ),
               ),
               Expanded(
                 child: RatesCard(
                   position: CardPosition.right,
-                  dataKey: 'On Lockdown',
-                  value: 'Yes',
+                  dataKey: 'Status',
+                  value: locationStatus(),
                   unit: '',
                 ),
               ),

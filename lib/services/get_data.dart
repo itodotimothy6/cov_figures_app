@@ -18,6 +18,9 @@ class Data {
       double countyPopulation =
           population[key] != null ? double.parse(population[key]) : 1000000;
 
+      double infectedDensity = data['confirmed'] * 1000 / countyPopulation;
+      CoronaStatus status = getStatus(infectedDensity);
+
       countiesDataMap[key] = CovData(
         countyName: data['county_name'],
         stateName: data['state_name'],
@@ -29,8 +32,11 @@ class Data {
         newDeath: data['new_death'],
         fatalityRate: data['fatality_rate'],
         lastUpdate: data['last_update'],
-        infectedDensity: data['confirmed'] * 1000 / countyPopulation,
+        infectedDensity: infectedDensity,
         mortalityRate: data['death'] / data['confirmed'],
+        color: getColor(status),
+        backGroundColor: getBackgroundColor(status),
+        status: status,
       );
     }
 

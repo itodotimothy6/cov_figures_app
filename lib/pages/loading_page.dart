@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:covfiguresapp/services/location.dart';
 import 'package:covfiguresapp/models/cov_data.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingPage extends StatefulWidget {
   static const id = '/';
+  final bool initialPage;
+
+  LoadingPage({this.initialPage});
 
   @override
   _LoadingPageState createState() => _LoadingPageState();
@@ -16,7 +20,7 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   void initState() {
     super.initState();
-    getLocationData();
+    if (widget.initialPage) getLocationData();
   }
 
   void getLocationData() async {
@@ -39,11 +43,11 @@ class _LoadingPageState extends State<LoadingPage> {
     return Scaffold(
       backgroundColor: kLightPurple,
       body: Center(
-//        child: SpinKitCircle(
-//          color: kMainPurple,
-//          size: 100.0,
-//        ),
-          ),
+        child: SpinKitCircle(
+          color: kMainPurple,
+          size: 100.0,
+        ),
+      ),
     );
   }
 }
