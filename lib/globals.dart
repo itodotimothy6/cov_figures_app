@@ -30,22 +30,22 @@ const kAppBarHeight = 30.0;
 const kAppBarExpandedHeight = 150.0;
 
 //Add commas to numbers greater than three digits
-String commalize(int num){
+String commalize(var num) {
   String stringed = num.toString();
-  return stringed.replaceAllMapped(new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
+  return stringed.replaceAllMapped(
+    new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+    (Match m) => '${m[1]},',
+  );
 }
-//Converting the date format
 
-String dateTimeConverter(String dateTime){
-
+String dateTimeConverter(String dateTime) {
   //Take out EDT from date and time
-  dateTime = dateTime.substring(0,(dateTime.length)-4);
+  dateTime = dateTime.substring(0, (dateTime.length) - 4);
 
   var df = DateFormat.yMMMMd('en_US').add_jm();
-
   var date = DateTime.parse(dateTime);
 
-  return df.format(date);
+  return df.format(date) + ' EDT';
 }
 
 // Corona Status Functions
@@ -69,8 +69,3 @@ CoronaStatus getStatus(double infectedDensity) {
   if (infectedDensity > 1) return CoronaStatus.casual;
   return CoronaStatus.safe;
 }
-
-
-
-
-

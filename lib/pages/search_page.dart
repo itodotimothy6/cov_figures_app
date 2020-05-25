@@ -29,7 +29,7 @@ class SearchPage extends StatelessWidget {
   Future<List<String>> search(String search) async {
     List<String> searchResult = [];
     population.keys.toList().forEach((value) {
-      if (value.startsWith(search)) {
+      if (value.toLowerCase().contains(search.toLowerCase())) {
         searchResult.add(value);
       }
     });
@@ -58,6 +58,7 @@ class SearchPage extends StatelessWidget {
           padding: const EdgeInsets.all(40),
           child: SearchBar<String>(
             onSearch: search,
+            hintText: "Search US counties",
             onItemFound: (String location, int index) {
               return FlatButton(
                 onPressed: () async {

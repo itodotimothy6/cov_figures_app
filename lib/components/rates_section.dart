@@ -17,7 +17,7 @@ class RatesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String countyKey = '${data.countyName},${data.stateCode}';
+    String countyKey = '${data.countyName}, ${data.stateCode}';
     return Container(
       padding: EdgeInsets.all(40),
       child: Column(

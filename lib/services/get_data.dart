@@ -14,7 +14,7 @@ class Data {
     Map<String, CovData> countiesDataMap = {};
 
     for (var data in countiesData["message"]) {
-      String key = '${data["county_name"]},${stateCode[data["state_name"]]}';
+      String key = '${data["county_name"]}, ${stateCode[data["state_name"]]}';
       double countyPopulation =
           population[key] != null ? double.parse(population[key]) : 1000000;
 

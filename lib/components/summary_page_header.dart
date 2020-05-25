@@ -12,9 +12,9 @@ class SummaryPageHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      leading: Container(),
       backgroundColor: kMainPurple,
       bottom: PreferredSize(
-        // Add this code
         preferredSize: Size.fromHeight(kAppBarHeight),
         child: Text(''),
       ),
@@ -45,7 +45,7 @@ class SummaryPageHeader extends StatelessWidget {
                 child: FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
-                    'As of $lastUpdate',
+                    'As of ${dateTimeConverter(lastUpdate)}',
                     style: kTextStyle,
                   ),
                 ),

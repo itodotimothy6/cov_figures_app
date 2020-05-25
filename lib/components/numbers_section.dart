@@ -38,26 +38,26 @@ class NumbersSection extends StatelessWidget {
         cases: data.confirmed,
         color: data.color,
         backgroundColor: data.backGroundColor,
-        population: population['${data.countyName},${data.stateCode}'],
+        population: population['${data.countyName}, ${data.stateCode}'],
       ),
       SizedBox(height: 30),
     ];
 
     records.addAll(createRecord(
       dataKey: "Confirmed Cases",
-      dataValue: data.confirmed != null ? data.confirmed.toString() : '-',
+      dataValue: data.confirmed != null ? commalize(data.confirmed) : '-',
     ));
     records.addAll(createRecord(
       dataKey: "Recent Cases",
-      dataValue: data.newConfirmed != null ? data.newConfirmed.toString() : '-',
+      dataValue: data.newConfirmed != null ? commalize(data.newConfirmed) : '-',
     ));
     records.addAll(createRecord(
       dataKey: "Deaths",
-      dataValue: data.death != null ? data.death.toString() : '-',
+      dataValue: data.death != null ? commalize(data.death) : '-',
     ));
     records.addAll(createRecord(
       dataKey: "Recent Deaths",
-      dataValue: data.newDeath != null ? data.newDeath.toString() : '-',
+      dataValue: data.newDeath != null ? commalize(data.newDeath) : '-',
     ));
 
     return records;
