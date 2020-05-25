@@ -30,7 +30,7 @@ class CaseNumberBox extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
-                '$cases',
+                '${commalize(cases)}',
                 style: kTextStyle.copyWith(
                   color: color,
                   fontSize: 70,
@@ -42,7 +42,7 @@ class CaseNumberBox extends StatelessWidget {
             flex: 3,
             child: Center(
               child: Text(
-                'out of the $population people in this county',
+                'out of the ${commalize(population)} people in this county',
                 style: kTextStyle.copyWith(
                   color: color,
                   fontSize: 18,

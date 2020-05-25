@@ -17,7 +17,7 @@ class Location {
 
     // TODO: Logic for US & Other countries
     String key =
-        '${county["results"][0]["county_name"]},${county["results"][0]["state_code"]}';
+        '${county["results"][0]["county_name"]}, ${county["results"][0]["state_code"]}';
     var data = await Data().getUSData();
 
     CovData.rank = rankCounties(data);
@@ -48,7 +48,6 @@ class Location {
       }
       county.setRank(rank);
       rankOf[county.name] = rank;
-      print('${county.name} => ${county.rank}');
     }
 
     return rankOf;

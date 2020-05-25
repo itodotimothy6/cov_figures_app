@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:covfiguresapp/globals.dart';
 import 'package:covfiguresapp/models/cov_data.dart';
 import 'package:covfiguresapp/pages/summary_page.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class ComparePage extends StatefulWidget {
   static const id = 'compare_page';
@@ -24,17 +25,17 @@ class _ComparePageState extends State<ComparePage> {
 
   String getValue(CovData data) {
     if (dropdownValue == stats[0]) {
-      return data.confirmed.toString();
+      return commalize(data.confirmed);
     } else if (dropdownValue == stats[1]) {
-      return data.newConfirmed.toString();
+      return commalize(data.newConfirmed);
     } else if (dropdownValue == stats[2]) {
-      return data.death.toString();
+      return commalize(data.death);
     } else if (dropdownValue == stats[3]) {
-      return data.newDeath.toString();
+      return commalize(data.death);
     } else if (dropdownValue == stats[4]) {
-      return '${data.infectedDensity.toStringAsFixed(1)}/1000';
+      return '${data.infectedDensity.toStringAsFixed(2)} / 1000';
     } else {
-      return data.mortalityRate.toStringAsFixed(1) + '%';
+      return data.mortalityRate.toStringAsFixed(2) + '%';
     }
   }
 
@@ -80,6 +81,7 @@ class _ComparePageState extends State<ComparePage> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(kAppBarHeight + 50),
         child: AppBar(
+            leading: Container(),
             backgroundColor: kMainPurple,
             centerTitle: true,
             title: statsDropDown()),
@@ -126,7 +128,7 @@ class _ComparePageState extends State<ComparePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text(
+                              AutoSizeText(
                                 '${item.countyName}, ${item.stateCode}',
                                 style: kTextStyle.copyWith(
                                   fontSize: 30,
@@ -135,25 +137,29 @@ class _ComparePageState extends State<ComparePage> {
                                 ),
                               ),
                               Text(
-                                item.lastUpdate,
+                                dateTimeConverter(item.lastUpdate),
                                 style: kTextStyle.copyWith(
                                   fontSize: 17,
                                   color: kFontColor2,
                                 ),
                               ),
                             ],
-//
                           ),
                         ),
                       ),
                       Expanded(
                         flex: 1,
                         child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
                           child: Center(
-                              child: Text(
+                              child: AutoSizeText(
                             getValue(item),
+                            maxLines: 1,
+                            minFontSize: 5,
                             style: kTextStyle.copyWith(
-                                fontSize: 30, color: item.color),
+                              color: item.color,
+                              fontSize: 30,
+                            ),
                           )),
                           height: 110,
                           decoration: BoxDecoration(

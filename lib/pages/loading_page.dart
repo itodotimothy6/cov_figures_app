@@ -43,11 +43,11 @@ class _LoadingPageState extends State<LoadingPage> {
     return Scaffold(
       backgroundColor: kLightPurple,
       body: Center(
-        child: SpinKitCircle(
-          color: kMainPurple,
-          size: 100.0,
-        ),
-      ),
+//        child: SpinKitCircle(
+//          color: kMainPurple,
+//          size: 100.0,
+//        ),
+          ),
     );
   }
 }
