@@ -69,3 +69,5 @@ CoronaStatus getStatus(double infectedDensity) {
   if (infectedDensity > 1) return CoronaStatus.casual;
   return CoronaStatus.safe;
 }
+
+

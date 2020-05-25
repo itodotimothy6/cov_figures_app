@@ -31,7 +31,7 @@ class _ComparePageState extends State<ComparePage> {
     } else if (dropdownValue == stats[2]) {
       return commalize(data.death);
     } else if (dropdownValue == stats[3]) {
-      return commalize(data.death);
+      return commalize(data.newDeath);
     } else if (dropdownValue == stats[4]) {
       return '${data.infectedDensity.toStringAsFixed(2)} / 1000';
     } else {

@@ -1,6 +1,4 @@
-body{
-  background-color: #fbf8fd;
-}
+
 i{
   margin-right: 10px;
 }
@@ -9,7 +7,8 @@ i{
   text-align: center;
 }
 #stats{
-  background-color: #CEC9E4;
+  /* background-color: #CEC9E4; */
+  background-color: #473F97;
 }
 h1{
   font-family: 'Roboto Slab', serif;
@@ -51,13 +50,26 @@ font-size: 1.2rem;
 .android-img{
   position: static;
   width: 45%;
-  left: 70px;
+
+}
+
+.ios-img{
+  position: static;
+  width: 35%;
+margin-left: 30px;
+
 }
 .dl-btn{
   margin: 10px 10px 0 10px;
 }
 .btn-link{
   color: black;
+}
+.card-header{
+  background-color: #CEC9E4;
+}
+.card-body{
+  background-color: white;
 }
 
 #accordion{
