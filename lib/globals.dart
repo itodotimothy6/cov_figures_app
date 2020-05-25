@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'models/cov_data.dart';
+import 'package:intl/intl.dart';
 
 List<CovData> userLocations = [];
 
@@ -28,9 +29,24 @@ const kRatesCardHeight = 120.0;
 const kAppBarHeight = 30.0;
 const kAppBarExpandedHeight = 150.0;
 
-//TODO: Function that commalizes numbers
+//Add commas to numbers greater than three digits
+String commalize(int num){
+  String stringed = num.toString();
+  return stringed.replaceAllMapped(new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
+}
+//Converting the date format
 
-//TODO: Function that converts the date format
+String dateTimeConverter(String dateTime){
+
+  //Take out EDT from date and time
+  dateTime = dateTime.substring(0,(dateTime.length)-4);
+
+  var df = DateFormat.yMMMMd('en_US').add_jm();
+
+  var date = DateTime.parse(dateTime);
+
+  return df.format(date);
+}
 
 // Corona Status Functions
 enum CoronaStatus { danger, casual, safe }
@@ -53,3 +69,8 @@ CoronaStatus getStatus(double infectedDensity) {
   if (infectedDensity > 1) return CoronaStatus.casual;
   return CoronaStatus.safe;
 }
+
+
+
+
+
