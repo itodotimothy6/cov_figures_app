@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
+
 class RateAlertBox extends StatelessWidget {
+  final String title;
+  final String content;
+
+  RateAlertBox({this.title,this.content});
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
@@ -12,7 +17,7 @@ class RateAlertBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Expanded(
-                child: Text("Title"),
+                child: Text(title),
               ),
               Expanded(
                 child: Align(
@@ -31,8 +36,7 @@ class RateAlertBox extends StatelessWidget {
             ],
           ),
         ),
-        content: Text(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cursus ullamcorper erat, non sodales tortor rhoncus id. Nullam pulvinar vehicula metus. Nulla pulvinar eu enim ac condimentum. Duis fringilla egestas ex, at egestas leo bibendum a. Integer feugiat leo id nibh gravida mattis. Morbi hendrerit non nulla id vestibulum. "),
+        content: Text(content,textAlign: TextAlign.left,),
         actions: <Widget>[],
       ),
     );
