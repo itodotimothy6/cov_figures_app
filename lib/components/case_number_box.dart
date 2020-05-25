@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:covfiguresapp/constants.dart';
+import 'package:covfiguresapp/globals.dart';
 
 class CaseNumberBox extends StatelessWidget {
+  final cases;
+  final color;
+  final backgroundColor;
+  final population;
+
+  CaseNumberBox(
+      {this.cases, this.backgroundColor, this.color, this.population});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(17),
       height: 200,
       decoration: BoxDecoration(
-        color: kSafeBackgroundColor,
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(15),
         border: Border.all(
-          color: kSafeColor,
+          color: color,
           width: 2.0,
         ),
       ),
@@ -22,9 +30,9 @@ class CaseNumberBox extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
-                '11,000',
+                '${commalize(cases)}',
                 style: kTextStyle.copyWith(
-                  color: kSafeColor,
+                  color: color,
                   fontSize: 70,
                 ),
               ),
@@ -34,9 +42,9 @@ class CaseNumberBox extends StatelessWidget {
             flex: 3,
             child: Center(
               child: Text(
-                'out of the 700,000 confirmed cases in the world',
+                'out of the ${commalize(population)} people in this county',
                 style: kTextStyle.copyWith(
-                  color: kSafeColor,
+                  color: color,
                   fontSize: 18,
                 ),
                 textAlign: TextAlign.center,

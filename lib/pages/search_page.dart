@@ -1,7 +1,11 @@
+import 'package:covfiguresapp/pages/compare_page.dart';
+import 'package:covfiguresapp/pages/loading_page.dart';
 import 'package:flappy_search_bar/search_bar_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flappy_search_bar/flappy_search_bar.dart';
-import 'package:covfiguresapp/constants.dart';
+import 'package:covfiguresapp/globals.dart';
+import 'package:covfiguresapp/data/states.dart';
+import 'package:covfiguresapp/services/get_data.dart';
 
 class SearchPage extends StatelessWidget {
   static const id = 'search_page';
@@ -23,8 +27,26 @@ class SearchPage extends StatelessWidget {
       );
 
   Future<List<String>> search(String search) async {
-    await Future.delayed(Duration(seconds: 1));
-    return kStates;
+    List<String> searchResult = [];
+    population.keys.toList().forEach((value) {
+      if (value.toLowerCase().contains(search.toLowerCase())) {
+        searchResult.add(value);
+      }
+    });
+    return searchResult;
+  }
+
+  Future addLocation(String key, BuildContext context) async {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LoadingPage(initialPage: false);
+    }));
+
+    var data = await Data().getUSData();
+    userLocations.add(data[key]);
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return ComparePage();
+    }));
   }
 
   @override
@@ -36,20 +58,26 @@ class SearchPage extends StatelessWidget {
           padding: const EdgeInsets.all(40),
           child: SearchBar<String>(
             onSearch: search,
-            onItemFound: (String state, int index) {
-              return Container(
-                height: 50,
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  state,
-                  style: kTextStyle.copyWith(
-                    color: kFontColor2,
-                    fontSize: 18,
+            hintText: "Search US counties",
+            onItemFound: (String location, int index) {
+              return FlatButton(
+                onPressed: () async {
+                  await addLocation(location, context);
+                },
+                child: Container(
+                  height: 50,
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    location,
+                    style: kTextStyle.copyWith(
+                      color: kFontColor2,
+                      fontSize: 18,
+                    ),
                   ),
-                ),
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(width: 1.0, color: kMainPurple),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(width: 1.0, color: kMainPurple),
+                    ),
                   ),
                 ),
               );

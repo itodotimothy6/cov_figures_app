@@ -1,14 +1,20 @@
 import 'package:covfiguresapp/pages/compare_page.dart';
 import 'package:flutter/material.dart';
-import 'package:covfiguresapp/constants.dart';
+import 'package:covfiguresapp/globals.dart';
 
 class SummaryPageHeader extends StatelessWidget {
+  final String name;
+  final String stateCode;
+  final String lastUpdate;
+
+  SummaryPageHeader({this.name, this.stateCode, this.lastUpdate});
+
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      leading: Container(),
       backgroundColor: kMainPurple,
       bottom: PreferredSize(
-        // Add this code
         preferredSize: Size.fromHeight(kAppBarHeight),
         child: Text(''),
       ),
@@ -29,7 +35,7 @@ class SummaryPageHeader extends StatelessWidget {
                 child: FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
-                    'Little Rock, AR',
+                    '$name, $stateCode',
                     style: kTextStyle,
                   ),
                 ),
@@ -39,7 +45,7 @@ class SummaryPageHeader extends StatelessWidget {
                 child: FittedBox(
                   fit: BoxFit.contain,
                   child: Text(
-                    'As of May 5, 2020, 6:00pm',
+                    'As of ${dateTimeConverter(lastUpdate)}',
                     style: kTextStyle,
                   ),
                 ),

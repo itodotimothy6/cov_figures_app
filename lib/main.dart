@@ -1,7 +1,8 @@
+import 'package:covfiguresapp/pages/loading_page.dart';
 import 'package:covfiguresapp/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/compare_page.dart';
-import 'constants.dart';
+import 'globals.dart';
 import 'pages/summary_page.dart';
 
 void main() => runApp(CovFiguresApp());
@@ -15,9 +16,10 @@ class CovFiguresApp extends StatelessWidget {
         scaffoldBackgroundColor: kLightPurple,
         canvasColor: kMainPurple,
       ),
-      initialRoute: SummaryPage.id,
+      initialRoute: LoadingPage.id,
       routes: {
-        SummaryPage.id: (context) => SummaryPage(),
+        LoadingPage.id: (context) => LoadingPage(initialPage: true),
+//        SummaryPage.id: (context) => SummaryPage(),
         ComparePage.id: (context) => ComparePage(),
         SearchPage.id: (context) => SearchPage(),
       },
