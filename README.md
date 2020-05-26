@@ -8,7 +8,7 @@ An cross-platform app that provides important current data&#x2F;information abou
 * geo.fcc.gov area API
 * US Census Bureau Population Data  
 
-![App Demo]()
+![App Demo](https://github.com/itodotimothy6/cov_figures_app/blob/master/Cov-Figures-Demo.gif)
 
 ### Data provided per county
 Markdown | Less 
