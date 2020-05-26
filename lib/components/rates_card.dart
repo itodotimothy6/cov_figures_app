@@ -37,7 +37,7 @@ class RatesCard extends StatelessWidget {
       height: kRatesCardHeight,
       child: FlatButton(
         onPressed: () {
-          createAlertDialog(context);
+          createAlertDialog(context, dataKey, value);
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -74,11 +74,24 @@ class RatesCard extends StatelessWidget {
     );
   }
 
-  createAlertDialog(BuildContext context) {
+  createAlertDialog(BuildContext context, String rateKey, String value) {
+    Map<String, String> rateInfo = {
+      "Infected Density":
+          "Out of every 1000 people in this county, $value are infected with the Coronavirus",
+      "Mortality Rate":
+          "$value percent of the confirmed cases in this county died of the virus",
+      "Danger Rank":
+          "Out of the 3007 counties in the US, this county ranks $value as the most dangerous county in the US ",
+      "Status":
+          "Based on the number of infected people per population, on a Safe-Casual-Danger scale, the status of this county is '$value'",
+    };
     return showDialog(
         context: context,
         builder: (context) {
-          return RateAlertBox();
+          return RateAlertBox(
+            title: rateKey,
+            content: rateInfo[rateKey],
+          );
         });
   }
 }
