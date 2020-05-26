@@ -37,7 +37,7 @@ class SummaryPage extends StatelessWidget {
                     NumbersSection(data: data),
                     Container(height: 15, color: kLightPurple),
                     RatesSection(data: data),
-                    BottomInfoIconButton(),
+//                    BottomInfoIconButton(),
                   ],
                 ),
               ),

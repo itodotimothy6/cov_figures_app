@@ -10,6 +10,7 @@ class Data {
 
   Future<Map<String, CovData>> getUSData() async {
     NetworkHelper network = NetworkHelper(url: url);
+
     var countiesData = await network.getData();
     Map<String, CovData> countiesDataMap = {};
 

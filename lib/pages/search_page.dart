@@ -1,53 +1,16 @@
 import 'package:covfiguresapp/pages/compare_page.dart';
 import 'package:covfiguresapp/pages/loading_page.dart';
 import 'package:flappy_search_bar/search_bar_style.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:covfiguresapp/globals.dart';
 import 'package:covfiguresapp/data/states.dart';
 import 'package:covfiguresapp/services/get_data.dart';
+import 'dart:io' show Platform;
 
 class SearchPage extends StatelessWidget {
   static const id = 'search_page';
-
-  Container searchBarIcon() => Container(
-        width: 50,
-        height: 50,
-        decoration: BoxDecoration(
-          color: kMainPurple,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(10),
-            bottomLeft: Radius.circular(10),
-          ),
-        ),
-        child: Icon(
-          Icons.search,
-          color: kPurpleWhite,
-        ),
-      );
-
-  Future<List<String>> search(String search) async {
-    List<String> searchResult = [];
-    population.keys.toList().forEach((value) {
-      if (value.toLowerCase().contains(search.toLowerCase())) {
-        searchResult.add(value);
-      }
-    });
-    return searchResult;
-  }
-
-  Future addLocation(String key, BuildContext context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return LoadingPage(initialPage: false);
-    }));
-
-    var data = await Data().getUSData();
-    userLocations.add(data[key]);
-
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return ComparePage();
-    }));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +22,13 @@ class SearchPage extends StatelessWidget {
           child: SearchBar<String>(
             onSearch: search,
             hintText: "Search US counties",
+            emptyWidget: Center(
+              child: Text(
+                "No results found",
+                style: kTextStyle.copyWith(color: kFontColor2, fontSize: 18),
+              ),
+            ),
+            cancellationWidget: Text('Clear'),
             onItemFound: (String location, int index) {
               return FlatButton(
                 onPressed: () async {
@@ -93,5 +63,87 @@ class SearchPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Container searchBarIcon() => Container(
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(
+          color: kMainPurple,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            bottomLeft: Radius.circular(10),
+          ),
+        ),
+        child: Icon(
+          Icons.search,
+          color: kPurpleWhite,
+        ),
+      );
+
+  Future<List<String>> search(String search) async {
+    List<String> searchResult = [];
+    population.keys.toList().forEach((value) {
+      if (value.toLowerCase().contains(search.toLowerCase())) {
+        searchResult.add(value);
+      }
+    });
+    return searchResult;
+  }
+
+  Future addLocation(String key, BuildContext context) async {
+    try {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return LoadingPage(initialPage: false);
+      }));
+
+      var data = await Data().getUSData();
+      userLocations.add(data[key]);
+
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return ComparePage();
+      }));
+    } catch (e) {
+      print(e);
+
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          if (Platform.isAndroid) {
+            return AlertDialog(
+              title: Text("Error getting location data"),
+              content: Text('Please try again'),
+              elevation: 24,
+              actions: <Widget>[
+                FlatButton(
+                  child: Text("Return to Compare Page"),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return ComparePage();
+                    }));
+                  },
+                )
+              ],
+            );
+          }
+          return CupertinoAlertDialog(
+            title: Text("Error getting location data"),
+            content: Text('Please try again'),
+            actions: <Widget>[
+              FlatButton(
+                child: Text("Return to Compare Page"),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ComparePage();
+                  }));
+                },
+              )
+            ],
+          );
+        },
+      );
+    }
   }
 }
