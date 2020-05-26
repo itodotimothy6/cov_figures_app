@@ -14,7 +14,7 @@ An cross-platform app that detects a user's location and provides up-to-date cov
 
 
 ### Data shown in app
-Markdown | Less 
+Data | Description 
 ---------------------------| ------------------------------
 Confirmed Cases | This is simply the amount of people who have been infected and tested positive for the coronavirus.
 Recent Cases | This is the amount of cases that have been confirmed from the last time new data was received from ncov19.us API to the recent update.
