@@ -3,7 +3,6 @@ import 'package:covfiguresapp/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/compare_page.dart';
 import 'globals.dart';
-import 'pages/summary_page.dart';
 
 void main() => runApp(CovFiguresApp());
 

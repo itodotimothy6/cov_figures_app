@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -13,8 +12,7 @@ class NetworkHelper {
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
-      print("Connection failed");
-      throw Exception('Failed to connect to URL');
+      throw Exception('Failed to get data from API URL: $url');
     }
   }
 }

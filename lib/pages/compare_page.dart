@@ -23,58 +23,6 @@ class _ComparePageState extends State<ComparePage> {
     'Mortality Rate',
   ];
 
-  String getValue(CovData data) {
-    if (dropdownValue == stats[0]) {
-      return commalize(data.confirmed);
-    } else if (dropdownValue == stats[1]) {
-      return commalize(data.newConfirmed);
-    } else if (dropdownValue == stats[2]) {
-      return commalize(data.death);
-    } else if (dropdownValue == stats[3]) {
-      return commalize(data.newDeath);
-    } else if (dropdownValue == stats[4]) {
-      return '${data.infectedDensity.toStringAsFixed(2)} / 1000';
-    } else {
-      return data.mortalityRate.toStringAsFixed(2) + '%';
-    }
-  }
-
-  Widget statsDropDown() {
-    return Container(
-      height: 70,
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: DropdownButton<String>(
-          value: dropdownValue,
-          icon: Icon(
-            Icons.keyboard_arrow_down,
-            color: kFontColor1,
-          ),
-          iconSize: 34,
-          elevation: 16,
-          style: TextStyle(color: kFontColor1, fontSize: 24),
-          onChanged: (String newValue) {
-            setState(() {
-              dropdownValue = newValue;
-            });
-          },
-          underline: Container(
-            padding: EdgeInsets.only(top: 10),
-            color: kLightPurple,
-            height: 1,
-          ),
-          focusColor: Colors.red,
-          items: stats.map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -194,6 +142,58 @@ class _ComparePageState extends State<ComparePage> {
           onPressed: () {
             Navigator.pushNamed(context, SearchPage.id);
           }),
+    );
+  }
+
+  String getValue(CovData data) {
+    if (dropdownValue == stats[0]) {
+      return commalize(data.confirmed);
+    } else if (dropdownValue == stats[1]) {
+      return commalize(data.newConfirmed);
+    } else if (dropdownValue == stats[2]) {
+      return commalize(data.death);
+    } else if (dropdownValue == stats[3]) {
+      return commalize(data.newDeath);
+    } else if (dropdownValue == stats[4]) {
+      return '${data.infectedDensity.toStringAsFixed(2)} / 1000';
+    } else {
+      return data.mortalityRate.toStringAsFixed(2) + '%';
+    }
+  }
+
+  Widget statsDropDown() {
+    return Container(
+      height: 70,
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: DropdownButton<String>(
+          value: dropdownValue,
+          icon: Icon(
+            Icons.keyboard_arrow_down,
+            color: kFontColor1,
+          ),
+          iconSize: 34,
+          elevation: 16,
+          style: TextStyle(color: kFontColor1, fontSize: 24),
+          onChanged: (String newValue) {
+            setState(() {
+              dropdownValue = newValue;
+            });
+          },
+          underline: Container(
+            padding: EdgeInsets.only(top: 10),
+            color: kLightPurple,
+            height: 1,
+          ),
+          focusColor: Colors.red,
+          items: stats.map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+        ),
+      ),
     );
   }
 }

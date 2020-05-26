@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 const stateCode = {
   'Mississippi': 'MS',
   'Northern Mariana Islands': 'MP',
