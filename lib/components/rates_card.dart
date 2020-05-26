@@ -42,9 +42,6 @@ class RatesCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-//            SizedBox(
-//              height: 15,
-//            ),
             Text(
               dataKey,
               style: kTextStyle.copyWith(
