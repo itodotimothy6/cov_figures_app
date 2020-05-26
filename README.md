@@ -2,13 +2,13 @@
 
 An cross-platform app that provides important current data&#x2F;information about COVID-19 relative to the user’s location.
 
+![App Demo](https://github.com/itodotimothy6/cov_figures_app/blob/master/Cov-Figures-Demo.gif)
 
 ### Data Sources/API
 * ncov19.us API
 * geo.fcc.gov area API
 * US Census Bureau Population Data  
 
-![App Demo](https://github.com/itodotimothy6/cov_figures_app/blob/master/Cov-Figures-Demo.gif)
 
 ### Data provided per county
 Markdown | Less 
