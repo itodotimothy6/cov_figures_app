@@ -28,7 +28,7 @@ class RatesSection extends StatelessWidget {
                 child: RatesCard(
                   position: CardPosition.left,
                   dataKey: 'Infected Density',
-                  value: data.infectedDensity.toStringAsFixed(2),
+                  value: data.infectedDensity.toStringAsFixed(1),
                   unit: '/1000',
                 ),
               ),

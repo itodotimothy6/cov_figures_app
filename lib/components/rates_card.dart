@@ -63,8 +63,11 @@ class RatesCard extends StatelessWidget {
                 ),
                 Text(
                   unit,
+                  maxLines: 1,
                   style: kTextStyle.copyWith(
-                      fontWeight: FontWeight.bold, fontSize: 10),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 10,
+                  ),
                 ),
               ],
             ),
