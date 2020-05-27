@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'models/cov_data.dart';
 import 'package:intl/intl.dart';
 
-List<CovData> userLocations = [];
+Map<String, CovData> userLocations = {};
 
 // Colors
 const kMainPurple = Color(0xFF473F97);
@@ -69,5 +69,3 @@ CoronaStatus getStatus(double infectedDensity) {
   if (infectedDensity > 1) return CoronaStatus.casual;
   return CoronaStatus.safe;
 }
-
-

@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+//import 'dart:io' show Platform;
 import 'search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:covfiguresapp/globals.dart';
@@ -37,13 +39,14 @@ class _ComparePageState extends State<ComparePage> {
       body: ListView.builder(
           itemCount: userLocations.length,
           itemBuilder: (BuildContext context, int index) {
-            final item = userLocations[index];
+            final itemIndex = userLocations.keys.toList()[index];
+            CovData item = userLocations[itemIndex];
             return Dismissible(
-              key: Key('${item.countyName},${item.stateCode}'),
+              key: Key('${item.countyName}, ${item.stateCode}'),
               direction: DismissDirection.endToStart,
               onDismissed: (direction) {
                 setState(() {
-                  userLocations.removeAt(index);
+                  userLocations.remove('${item.countyName}, ${item.stateCode}');
                 });
               },
               background: Container(
@@ -166,34 +169,51 @@ class _ComparePageState extends State<ComparePage> {
       height: 70,
       child: Align(
         alignment: Alignment.bottomCenter,
-        child: DropdownButton<String>(
-          value: dropdownValue,
-          icon: Icon(
-            Icons.keyboard_arrow_down,
-            color: kFontColor1,
-          ),
-          iconSize: 34,
-          elevation: 16,
-          style: TextStyle(color: kFontColor1, fontSize: 24),
-          onChanged: (String newValue) {
-            setState(() {
-              dropdownValue = newValue;
-            });
-          },
-          underline: Container(
-            padding: EdgeInsets.only(top: 10),
-            color: kLightPurple,
-            height: 1,
-          ),
-          focusColor: Colors.red,
-          items: stats.map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
-        ),
+        child: androidDropdown(),
       ),
+    );
+  }
+
+//  Widget iosPicker() {
+//    return CupertinoPicker(
+//      itemExtent: 36,
+//      backgroundColor: kMainPurple,
+//      children: stats.map((stat) => Text(stat)).toList(),
+//      onSelectedItemChanged: (value) {
+//        setState(() {
+//          dropdownValue = stats[value];
+//        });
+//      },
+//    );
+//  }
+
+  DropdownButton<String> androidDropdown() {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: Icon(
+        Icons.keyboard_arrow_down,
+        color: kFontColor1,
+      ),
+      iconSize: 34,
+      elevation: 16,
+      style: TextStyle(color: kFontColor1, fontSize: 24),
+      onChanged: (String newValue) {
+        setState(() {
+          dropdownValue = newValue;
+        });
+      },
+      underline: Container(
+        padding: EdgeInsets.only(top: 10),
+        color: kLightPurple,
+        height: 1,
+      ),
+      focusColor: Colors.red,
+      items: stats.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
     );
   }
 }

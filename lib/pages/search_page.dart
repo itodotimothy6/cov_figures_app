@@ -98,7 +98,7 @@ class SearchPage extends StatelessWidget {
       }));
 
       var data = await Data().getUSData();
-      userLocations.add(data[key]);
+      userLocations[key] = data[key];
 
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return ComparePage();
