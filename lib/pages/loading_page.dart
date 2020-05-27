@@ -47,7 +47,8 @@ class _LoadingPageState extends State<LoadingPage> {
           Location(lat: position.latitude, long: position.longitude);
 
       CovData locationData = await location.getLocationData();
-      userLocations.add(locationData);
+      userLocations['${locationData.countyName}, ${locationData.stateCode}'] =
+          locationData;
 
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return SummaryPage(locationData);
