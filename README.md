@@ -1,19 +1,19 @@
-<img src="https://github.com/itodotimothy6/cov_figures_app/blob/master/ios/Runner/Assets.xcassets/AppIcon.appiconset/114.png">
+<img src="./ios/Runner/Assets.xcassets/AppIcon.appiconset/114.png">
 
-# cov_figures_app
+# Cov Figures
+A cross-platform app that detects a user's location and provides up-to-date covid-19 stats. User's can also compare stats between multiple US counties.
 
-An cross-platform app that detects a user's location and provides up-to-date covid-19 data. User's can also check other US counties to compare/view covid-19 info about the selected county.
+### Demo
+|Android|iOS|
+|-------|---|
+|<img height="480" src="./cov-figs-android-demo.gif">|<img  height="480" src="./cov-figs-iphone-demo.gif">|
 
-<p align="center">
-  <img src="https://github.com/itodotimothy6/cov_figures_app/blob/master/cov-figs-android-demo.gif">
-  <img src="https://github.com/itodotimothy6/cov_figures_app/blob/master/cov-figs-iphone-demo.gif">
-</p>
+### Getting Started
+As COVID-19 represents a novel public health crisis, apps of this nature can only be published to the Apple App Store or Google Play by legal entities. Therefore, this app can only be run locally at this point in time. Please follow the instructions below:
 
-### Run
-Because COVID-19 is a pulic health crisis, this app can only be published to the app/play store by a legal entity. As of now, this app can only be run locally. To run loccally follow the instructions below:
-* First install [Flutter](https://flutter.dev/docs/get-started/install) for your device and set up an emulator/simulator
-* Clone the project & open in Android Studio or VScode
-* Select an emulator/simulator and click run
+1. Install [Flutter](https://flutter.dev/docs/get-started/install) on your computer and optionally set up an emulator/simulator.
+2. Clone the project & open it in your IDE or code editor. We worked with Android Studio and VS Code.
+3. Install and run on an emulator/simulator or physical device.
 
 ### Data Sources/API
 * [ncov19.us API](https://documenter.getpostman.com/view/10962932/SzYevF7i?version=latest)
@@ -39,3 +39,8 @@ Danger Rank | This is a ranking of all the counties in the US based on how high 
 * [geolocator: 5.3.1](https://pub.dev/packages/geolocator)
 * [auto_size_text: 2.1.0](https://pub.dev/packages/auto_size_text)
 * [intl: 0.16.1](https://pub.dev/packages/intl)
+
+### Contributors
++ [Timothy Itodo](https://github.com/itodotimothy6)
++ [Nanfwang Dawurang](https://github.com/Fangeez)
++ [Michael Ogezi](https://mikeogezi.xyz)
