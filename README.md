@@ -9,11 +9,16 @@ An cross-platform app that detects a user's location and provides up-to-date cov
   <img src="https://github.com/itodotimothy6/cov_figures_app/blob/master/cov-figs-iphone-demo.gif">
 </p>
 
+### Run
+Because COVID-19 is a pulic health crisis, this app can only be published to the app/play store by a legal entity. As of now, this app can only be run locally. To run loccally follow the instructions below:
+* First install [Flutter](https://flutter.dev/docs/get-started/install) for your device and set up an emulator/simulator
+* Clone the project & open in Android Studio or VScode
+* Select an emulator/simulator and click run
 
 ### Data Sources/API
-* ncov19.us API
-* geo.fcc.gov area API
-* US Census Bureau Population Data  
+* [ncov19.us API](https://documenter.getpostman.com/view/10962932/SzYevF7i?version=latest)
+* [geo.fcc.gov area API](https://geo.fcc.gov/api/census/#!/area/get_area)
+* [US Census Bureau Population Data](https://www.census.gov/data/datasets/time-series/demo/popest/2010s-counties-total.html#par_textimage_739801612)
 
 
 ### Data shown in app
@@ -29,7 +34,8 @@ Danger Rank | This is a ranking of all the counties in the US based on how high 
 
 
 ### Flutter Packages used
-* flappy_search_bar: 1.7.2
-* flutter_spinkit: 4.1.2+1
-* geolocator: 5.3.1
-* auto_size_text: 2.1.0
+* [flappy_search_bar: 1.7.2](https://pub.dev/packages/flappy_search_bar)
+* [flutter_spinkit: 4.1.2+1](https://pub.dev/packages/flutter_spinkit)
+* [geolocator: 5.3.1](https://pub.dev/packages/geolocator)
+* [auto_size_text: 2.1.0](https://pub.dev/packages/auto_size_text)
+* [intl: 0.16.1](https://pub.dev/packages/intl)
