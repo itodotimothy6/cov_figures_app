@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'models/cov_data.dart';
 import 'package:intl/intl.dart';
 
-Map<String, CovData> userLocations = {};
-
 // Colors
 const kMainPurple = Color(0xFF473F97);
 const kLightPurple = Color(0xFFCEC9E4);
@@ -29,7 +27,7 @@ const kRatesCardHeight = 120.0;
 const kAppBarHeight = 30.0;
 const kAppBarExpandedHeight = 150.0;
 
-//Add commas to numbers greater than three digits
+// Add commas to numbers greater than three digits
 String commalize(var num) {
   String stringed = num.toString();
   return stringed.replaceAllMapped(
@@ -39,7 +37,7 @@ String commalize(var num) {
 }
 
 String dateTimeConverter(String dateTime) {
-  //Take out EDT from date and time
+  // Take out EDT from date and time
   dateTime = dateTime.substring(0, (dateTime.length) - 4);
 
   var df = DateFormat.yMMMMd('en_US').add_jm();
@@ -48,7 +46,7 @@ String dateTimeConverter(String dateTime) {
   return df.format(date) + ' EDT';
 }
 
-// Corona Status Functions
+// Corona Status Globals
 enum CoronaStatus { danger, casual, safe }
 
 Color getColor(CoronaStatus status) {
@@ -63,9 +61,11 @@ Color getBackgroundColor(CoronaStatus status) {
   return kSafeBackgroundColor;
 }
 
-// Temporary solve
 CoronaStatus getStatus(double infectedDensity) {
+  // Temporary solve
   if (infectedDensity > 100) return CoronaStatus.danger;
   if (infectedDensity > 1) return CoronaStatus.casual;
   return CoronaStatus.safe;
 }
+
+Map<String, CovData> userLocations = {};

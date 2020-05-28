@@ -15,7 +15,6 @@ class Location {
     NetworkHelper networkHelper = NetworkHelper(url: url);
     var county = await networkHelper.getData();
 
-    // TODO: Logic for US & Other countries
     String key =
         '${county["results"][0]["county_name"]}, ${county["results"][0]["state_code"]}';
     var data = await Data().getUSData();
@@ -38,7 +37,6 @@ class Location {
     counties.sort((a, b) => b.infectedDensity.compareTo(a.infectedDensity));
 
     double prevDensity = counties[0].infectedDensity;
-    print(prevDensity);
     int rank = 0;
 
     for (County county in counties) {
