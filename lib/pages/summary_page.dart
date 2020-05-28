@@ -3,7 +3,6 @@ import 'package:covfiguresapp/globals.dart';
 import 'package:flutter/material.dart';
 import 'package:covfiguresapp/components/numbers_section.dart';
 import 'package:covfiguresapp/components/rates_section.dart';
-import 'package:covfiguresapp/components/buttom_info_icon_button.dart';
 import 'package:covfiguresapp/models/cov_data.dart';
 
 class SummaryPage extends StatelessWidget {
@@ -15,7 +14,6 @@ class SummaryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("The location data is here ${data.stateName}");
     return Scaffold(
       body: Stack(
         fit: StackFit.loose,

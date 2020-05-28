@@ -6,8 +6,6 @@ import 'package:covfiguresapp/data/states.dart';
 const url = 'https://covid19-us-api.herokuapp.com/county';
 
 class Data {
-  // TODO: Function for other countries data
-
   Future<Map<String, CovData>> getUSData() async {
     NetworkHelper network = NetworkHelper(url: url);
 
