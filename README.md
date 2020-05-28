@@ -1,3 +1,5 @@
+<img src="https://github.com/itodotimothy6/cov_figures_app/blob/master/ios/Runner/Assets.xcassets/AppIcon.appiconset/114.png">
+
 # cov_figures_app
 
 An cross-platform app that detects a user's location and provides up-to-date covid-19 data. User's can also check other US counties to compare/view covid-19 info about the selected county.
