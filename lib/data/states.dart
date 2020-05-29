@@ -1,4 +1,4 @@
-const stateCode = {
+const Map<String, String> stateCode = {
   'Mississippi': 'MS',
   'Northern Mariana Islands': 'MP',
   'Oklahoma': 'OK',
